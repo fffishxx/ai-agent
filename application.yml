@@ -1,0 +1,235 @@
+server:
+  port: 18089  #服务端口
+  host: 0.0.0.0 #监听所有网络接口
+  logger:
+#    file: logs/app.log
+    level: DEBUG # 日志级别: CRITICAL, ERROR, WARNING, INFO, DEBUG
+
+jwt:
+  private_key: "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKIIk0LxLhUHchzhJ8A607DYSeAgSrPSS5GPdh8vDJshIkgK9YBxEBcqv5km/xyHgpE45FsyQSB5/fXph/ywwgNumYTZUUyt3yi+ygvfZyvpwo4Cz6Jzwp5M2doiG7lKryv0MbIsM3Rs5KU0BOAsMiVVt5LdeM3SSb1lHaQj5zdNAgMBAAECgYACCmxoYTpv8110wnUwtTNc79LTKs6MczwwA7si62gtb/5kvLAydobgWjgT74TMN2MY/YfXijHkMDhXNFWNHi2WiyScGaN3+YesxFUoG5H/2hQAUcDzj1Rryh+gerkWdqoFbGu3d+v5kur+w36VTCD3qpHyADycM//UA7yKb+8i4QJBANQyPNwOUJabDlLjTd42GzvAZTE6gmPrOopsRnHW8TVIHkHXexCMQLQ4TTg6Ct5ShuSTAgYUGPQv3jxpLts+fcUCQQDDe22AtsqnKVaG2KYVYWFLnI3hYNw8wePepZbt/87MPgYtkEc5WjFF/QUlHwLcpc7YW6hrJYwMbZvOB7YVHrPpAkAlbQLs8R1nosuA9RRb2AEvpbxzVVWAGBIILhayp219r02e4UmUXphe8Ps1qo8WLUobcI5P0iWgk/zHfOnFw5zdAkEAh2o+PfbiRZAeT4VO7+qocq99nY3yougRiU+eUTpusA+bSf7zR+iRz5Dp+oAUBHOb6Ub9UVQOQyG+16eB2/mL2QJBAIMjhAu5kTZAWVDpuJ6AtDodscuZQs8EOCdU7hx+aJUMC4K1aeuwD9QhkOZtpA/V2BzgNcqWt5dfntU2ovQ0g1U="
+  public_key: "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiCJNC8S4VB3Ic4SfAOtOw2EngIEqz0kuRj3YfLwybISJICvWAcRAXKr+ZJv8ch4KROORbMkEgef316Yf8sMIDbpmE2VFMrd8ovsoL32cr6cKOAs+ic8KeTNnaIhu5Sq8r9DGyLDN0bOSlNATgLDIlVbeS3XjN0km9ZR2kI+c3TQIDAQAB"
+  expire_hours: 720 #token有效期，单位小时
+
+db:
+  url: "mysql+pymysql://root:itcast321bca@192.168.150.101:3306/agent_center?charset=utf8mb4&connect_timeout=10"
+  pool_size: 10       # 连接池大小，保持不变
+  max_overflow: 20    # 超出连接池的最大连接数，保持不变
+  pool_timeout: 30    # 池中无连接时的等待时间，保持不变
+  pool_recycle: 1800  # 连接回收时间（秒），保持不变
+  echo: True          # 控制台输出SQL，开发调试打开；上线改成False
+
+
+ai:
+  "1001":
+    session:
+      title: Hello，我是天机AI助理
+      describe: 我是由天机学堂倾力打造的智能助理，我不仅能推荐课程、答疑解惑，还能为您激发创意、畅聊心事。
+      examples:
+        - title: "课程推荐"
+          describe: "能帮我推荐一个合适的课吗？"
+        - title: "课程推荐"
+          describe: "最近有什么新课吗？"
+        - title: "课程推荐"
+          describe: "如何选择适合我的课程？"
+        - title: "课程推荐"
+          describe: "有哪些热门课程推荐？"
+        - title: "课程购买"
+          describe: "我想要购买《Java进阶编程实战》"
+        - title: "课程购买"
+          describe: "我想要报名《Java高级架构与微服务》"
+        - title: "课程购买"
+          describe: "《Java进阶编程实战》的课程价格是多少？"
+        - title: "课程购买"
+          describe: "《Java高级架构与微服务》的课程价格是多少？"
+        - title: "课程介绍"
+          describe: "请帮我介绍一下《互联网产品运营实战》"
+        - title: "课程介绍"
+          describe: "《Java大数据处理与分析》这门课一共有多少节？"
+        - title: "课程介绍"
+          describe: "《Java高级架构与微服务》能学到什么内容？"
+        - title: "课程介绍"
+          describe: "《互联网产品运营实战》适合我学习吗？"
+        - title: "知识讲解"
+          describe: "面向对象的三大特征是什么？"
+        - title: "知识讲解"
+          describe: "ArrayList和LinkedList有何区别？"
+        - title: "知识讲解"
+          describe: "Java多线程怎么实现？"
+        - title: "知识讲解"
+          describe: "Spring Boot和SSM有什么区别？"
+        - title: "知识讲解"
+          describe: "列表和元组有什么区别？"
+        - title: "知识讲解"
+          describe: " Python如何管理内存？"
+        - title: "知识讲解"
+          describe: " 装饰器的作用是什么？"
+        - title: "知识讲解"
+          describe: "多线程为什么有GIL限制？"
+  "1003":
+    session:
+      title: Hello，我是天机AI助理
+      describe: 我是由天机学堂倾力打造的智能助理，我不仅能推荐课程、答疑解惑，还能为您激发创意、畅聊心事。
+      examples:
+        - title: "课程推荐"
+          describe: "能帮我推荐一个合适的课吗？"
+        - title: "课程推荐"
+          describe: "最近有什么新课吗？"
+        - title: "课程推荐"
+          describe: "如何选择适合我的课程？"
+        - title: "课程推荐"
+          describe: "有哪些热门课程推荐？"
+        - title: "课程购买"
+          describe: "我想要购买《Java进阶编程实战》"
+        - title: "课程购买"
+          describe: "我想要报名《Java高级架构与微服务》"
+        - title: "课程购买"
+          describe: "《Java进阶编程实战》的课程价格是多少？"
+        - title: "课程购买"
+          describe: "《Java高级架构与微服务》的课程价格是多少？"
+        - title: "课程介绍"
+          describe: "请帮我介绍一下《互联网产品运营实战》"
+        - title: "课程介绍"
+          describe: "《Java大数据处理与分析》这门课一共有多少节？"
+        - title: "课程介绍"
+          describe: "《Java高级架构与微服务》能学到什么内容？"
+        - title: "课程介绍"
+          describe: "《互联网产品运营实战》适合我学习吗？"
+        - title: "知识讲解"
+          describe: "面向对象的三大特征是什么？"
+        - title: "知识讲解"
+          describe: "ArrayList和LinkedList有何区别？"
+        - title: "知识讲解"
+          describe: "Java多线程怎么实现？"
+        - title: "知识讲解"
+          describe: "Spring Boot和SSM有什么区别？"
+        - title: "知识讲解"
+          describe: "列表和元组有什么区别？"
+        - title: "知识讲解"
+          describe: " Python如何管理内存？"
+        - title: "知识讲解"
+          describe: " 装饰器的作用是什么？"
+        - title: "知识讲解"
+          describe: "多线程为什么有GIL限制？"
+  "1004":
+    session:
+      title: Hello，我是出行小助手
+      describe: 我可以为你规划旅行行程、查询天气与景点、推荐当地美食，并在后台校验行程路线是否合理。
+      examples:
+        - title: "出行推荐"
+          describe: "帮我规划杭州三日游"
+        - title: "出行推荐"
+          describe: "下周去成都玩4天，带父母，帮我安排一下"
+        - title: "出行推荐"
+          describe: "周末想去苏州逛逛，两个人，预算不多"
+        - title: "出行推荐"
+          describe: "第一次去北京，5天时间，想去经典景点"
+        - title: "出行推荐"
+          describe: "带孩子去上海玩3天，怎么安排比较好？"
+        - title: "出行推荐"
+          describe: "大理三日游行程推荐"
+        - title: "出行推荐"
+          describe: "西安两天一夜怎么玩？"
+        - title: "出行推荐"
+          describe: "想去厦门看海，帮我排个轻松的行程"
+        - title: "路线推荐"
+          describe: "从西湖到灵隐寺怎么走？"
+        - title: "旅游知识"
+          describe: "去云南旅游需要注意什么？"
+        - title: "旅游知识"
+          describe: "杭州有哪些必吃的本地美食？"
+        - title: "一键打车"
+          describe: "帮我叫一辆车去故宫"
+  openai:
+    model: deepseek-flash
+    api-key: sk-0a225a4e6bbe46d6aed9c4b1ff930d46
+    base-url: https://api.deepseek.com
+    temperature: 0.8
+    timeout: 30
+    # DeepSeek 推理模型：结构化输出需关闭思考模式并改用 function_calling
+    structured-output:
+      disable-thinking: true
+      timeout: 90
+  agent:
+    checkpointer:
+      postgres:
+        min: 5 # 最小连接数
+        max: 10 # 最大连接数
+        url: "postgresql://postgres:itheima123@192.168.150.101:5432/postgres?sslmode=disable"
+
+redis:
+  host: 192.168.150.101
+  port: 6379
+  password: 123321
+
+nacos:
+  server-addr: 192.168.150.101:8848 # nacos注册中心
+  username: nacos
+  password: nacos
+  config:
+    namespace: public
+    group: DEFAULT_GROUP
+  discovery:
+    name: agent-center
+    namespace: f923fb34-cb0a-4c06-8fca-ad61ea61a3f0
+    ip: 192.168.150.1
+
+
+prompt:
+  intent:
+    prompt:
+      data-id: intent-prompt.txt
+    json-instruction:
+      data-id: intent-json-instruction.txt
+
+  planner:
+    prompt:
+      data-id: planner-prompt.txt
+    format-plan:
+      data-id: format-plan-prompt.txt
+    format-json-instruction:
+      data-id: format-json-instruction.txt
+
+  knowledge:
+    prompt:
+      data-id: knowledge-prompt.txt
+
+  other:
+    prompt:
+      data-id: other-prompt.txt
+
+  route:
+    prompt:
+      data-id: route-prompt.txt
+
+
+a2a:
+  servers:
+    - http://127.0.0.1:3601/
+    - http://127.0.0.1:3602/
+    - http://127.0.0.1:3603/
+    - http://127.0.0.1:3604/
+    - http://127.0.0.1:3605/
+
+# 高德地图 Web 服务配置（出行 Agent）
+# AMAP_KEY 通过环境变量注入，必须是「Web服务」类型的 Key，不是 JS API Key
+amap:
+  key: "58f169e78c3e269650da039c118b58ab"
+  timeout: 10
+
+# 滴滴 MCP（一键打车基础版）
+# DIDI_MCP_KEY 建议通过环境变量注入；联调阶段可把 sandbox 改为 true
+didi:
+  mcp:
+    key: "1gsMnxCgCDgisK6JkDlkor0RPHxg7bOxd"
+    base-url: "https://mcp.didichuxing.com/mcp-servers"
+    sandbox-url: "https://mcp.didichuxing.com/mcp-servers-sandbox"
+    sandbox: true
+    timeout: 15
+
+# Langfuse LLM 观测追踪配置
+langfuse:
+  enabled: true  # 是否启用 Langfuse 追踪（接入 Langfuse 后改为 true）
+  public-key: pk-lf-73845f34-732c-433d-b5d6-1d5c4760836a  # Langfuse 项目公钥（支持环境变量注入）
+  secret-key: sk-lf-2524fe31-c06a-443e-8240-3db928f38df2  # Langfuse 项目密钥（支持环境变量注入）
+  base-url: http://47.96.174.26:3000  # Langfuse 地址，如 https://cloud.langfuse.com 或自建地址
+  environment: development  # 环境标识，用于区分生产/测试 trace，避免测试数据污染生产统计
